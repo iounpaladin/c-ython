@@ -26,5 +26,8 @@ class CppOutput:
 
 
 cin = CppInput()
+i = cin
 cout = CppOutput()
+o = cout
 endl = '\n'
+l = endl
