@@ -13,14 +13,14 @@ PY_PRINT_SUB_NO_NEWLINE = ("print(%s % (%s), end=\"\")" if PY_VERSION == 3 else 
 class CppInput:
     def __rshift__(self, other):
         exec("""
-        nonlocal %s
-        %s = input()
-        """)
+global %s
+%s = input()
+        """ % (other, other))
 
 
 class CppOutput:
     def __lshift__(self, other):
-        printf(other)
+        exec(PY_PRINT_NO_NEWLINE % ("\"" + other + "\""))
 
 
 def printf(data, *args):
@@ -30,7 +30,7 @@ def printf(data, *args):
 
 def puts(data, *args):
     argv = ', '.join(args)
-    exec(PY_PRINT_SUB % (data, argv[:-3]))
+    exec(PY_PRINT_SUB % (data, argv))
 
 cin = CppInput()
 cout = CppOutput()
