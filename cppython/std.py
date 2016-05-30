@@ -16,12 +16,15 @@ class CppInput:
 global %s
 %s = input()
         """ % (other, other))
+        return self
 
 
 class CppOutput:
     def __lshift__(self, other):
-        exec(PY_PRINT_NO_NEWLINE % ("\"" + other + "\""))
+        exec(PY_PRINT_NO_NEWLINE % ("\"\"\"" + other + "\"\"\""))
+        return self
 
 
 cin = CppInput()
 cout = CppOutput()
+endl = '\n'
