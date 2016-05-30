@@ -23,14 +23,5 @@ class CppOutput:
         exec(PY_PRINT_NO_NEWLINE % ("\"" + other + "\""))
 
 
-def printf(data, *args):
-    argv = ', '.join(args)
-    exec(PY_PRINT_SUB_NO_NEWLINE % (data, argv[:-3]))
-
-
-def puts(data, *args):
-    argv = ', '.join(args)
-    exec(PY_PRINT_SUB % (data, argv))
-
 cin = CppInput()
 cout = CppOutput()
