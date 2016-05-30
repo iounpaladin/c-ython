@@ -13,7 +13,7 @@ PY_PRINT_SUB_NO_NEWLINE = ("print(%s % (%s), end=\"\")" if PY_VERSION == 3 else 
 class CppInput:
     def __rshift__(self, other):
         exec("""
-        global %s
+        nonlocal %s
         %s = input()
         """)
 
