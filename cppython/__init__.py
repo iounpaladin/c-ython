@@ -1,1 +1,1 @@
-# __init__ file for C++Python
+# __init__ file for C++ython

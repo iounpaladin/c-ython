@@ -1,4 +1,4 @@
-# std.py for C++Python
+# std.py for C++ython
 
 import sys
 
