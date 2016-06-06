@@ -10,12 +10,15 @@ PY_PRINT_NO_NEWLINE = ("print(%s, end=\"\")" if PY_VERSION == 3 else "print %s,"
 PY_PRINT_SUB_NO_NEWLINE = ("print(%s % (%s), end=\"\")" if PY_VERSION == 3 else "print %s % (%s),")
 
 
+class data:
+    pass
+
+
 class CppInput:
     def __rshift__(self, other):
         exec("""
-global %s
-%s = input()
-        """ % (other, other))
+data.%s = input()
+        """ % other)
         return self
 
 
